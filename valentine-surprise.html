@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="valentine-surprise.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's DayMinnu! 💖</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e25f5f, #ffffff); /* Red to white gradient for a colorful theme */
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ff0000; /* Red text for emphasis */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #ffffff; /* White text for contrast */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .message {
+            background: rgba(192, 6, 6, 0.9); /* White background with slight transparency */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            border: 2px solid #ff0000; /* Red border for color */
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        button {
+            background: #ff0000; /* Red background */
+            color: white;
+            border: 2px solid #ffffff; /* White border */
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease; /* Smooth transition for hover */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background: #cc0000; /* Darker red on hover */
+            transform: scale(1.1); /* Slight scale up */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+            border-color: #ffcccc; /* Light red border on hover */
+        }
+        .slideshow {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ff0000; /* Red border */
+        }
+        .slideshow img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: none;
+        }
+        .slideshow img.active {
+            display: block;
+        }
+        .response {
+            display: none;
+            font-size: 1.5em;
+            color: #ffffff; /* Red text */
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            color: #ff0000; /* Red hearts */
+            font-size: 2em;
+            animation: float 6s linear infinite;
+        }
+        @keyframes float {
+            0% { 
+                transform: translateY(100vh) translateX(0) rotate(0deg); 
+            }
+            25% { 
+                transform: translateY(75vh) translateX(20vw) rotate(90deg); 
+            }
+            50% { 
+                transform: translateY(50vh) translateX(-10vw) rotate(180deg); 
+            }
+            75% { 
+                transform: translateY(25vh) translateX(15vw) rotate(270deg); 
+            }
+            100% { 
+                transform: translateY(-100vh) translateX(0) rotate(360deg); 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    <h1>Happy Valentine's Day</h1>
+    <h1>Minnuuseee!</h1>
+    <div class="message">
+        <p>Hey Mareena, my love, my Minnu... 
+            hamne hamara journey 27 Sept ko shuru hua, can't believe we reached till here, we have much more to go abv, but it was super good and memorable till now. i loved every moment with you muthheeeeee. You are the best i had till now. Jada cringe toh nhiii ho rha haina. ummmmmmmahhhhhhh:</p>
+        <p><strong>Would you stay with me forever?</strong></p>
+        <div class="buttons">
+            <button onclick="respond('Yes Muthee')">Yes Mutheee</button>
+            <button onclick="respond('Hamesha tere sath')">Hamesha tere sath</button>
+        </div>
+        <div class="response" id="response"></div>
+    </div>
+    <div class="slideshow" id="slideshow">
+        <!-- Replace these with your own image URLs -->
+        <img src="images/image (1).jpeg">
+        <img src="images/image (2).jpeg">
+        <img src="images/image (3).jpeg">
+        <img src="images/image (4).jpeg">
+        <img src="images/image (5).jpeg">
+        <img src="images/image (6).jpeg">
+        <img src="images/image (7).jpeg">
+        <img src="images/image (8).jpeg">
+        <img src="images/image (9).jpeg">
+        <img src="images/image (10).jpeg">
+        <img src="images/image (11).jpeg">
+
+        
+        
+    </div>
+
+    <script>
+        // Auto-sliding slideshow
+        const images = document.querySelectorAll('#slideshow img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 3000); // Change image every 3 seconds
+
+        // Button response
+        function respond(choice) {
+            const responseDiv = document.getElementById('response');
+            responseDiv.style.display = 'block';
+            responseDiv.innerHTML = `Mujhe pta hi thaa ye, or tum kaha hi jaoge minnu`;
+        }
+
+        // Floating hearts animation - now with more random flying
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw'; // Random starting horizontal position
+            heart.style.animationDelay = Math.random() * 6 + 's';
+            document.getElementById('hearts').appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        setInterval(createHeart, 500); // Add a heart every 0.5 seconds
+    </script>
+</body>
+</html>
